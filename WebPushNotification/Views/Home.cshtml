@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    /**/
+
+    Layout = "Master.cshtml";
+    var backgroundImage = Model.Content.HeroBackgroundImage != null ? Model.Content.HeroBackgroundImage.Url : String.Empty;
+}
+
+@functions{
+    public string TokenHeaderValue()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;
+    }
+}
+
+<section class="section section--full-height background-image-full overlay overlay--dark section--content-center section--thick-border"
+         style="background-image: url('@backgroundImage')">
+    <div class="section__hero-content js-push-section">
+        <h1>Subscribe to push notifications</h1>
+        <p class="section__description">Click the button below to subscribe to push notifications. After clicking, you will receive
+        a popup in your browser to Allow notifications.</p>
+        <input id="pushToken" type="hidden" value="@TokenHeaderValue()" />
+        <button class="button button--border--light_solid js-toggle-push">Enable notifications</button>
+    </div>
+</section>
+<section class="section section">
+    @Html.GetGridHtml(Model.Content, "bodyText", "bootstrap3-fluid")
+</section>
+
+<section class="section section--themed">
+    <div class="container">
+        <div class="row">
+            <div class="ta-center">
+                <h2>@Model.Content.FooterHeader</h2>
+                <p class="section__description mw-640 ma-h-auto">@Model.Content.FooterDescription</p>
+                <a class="button button--border--light_solid" href="@Model.Content.FooterCtalink.Url">
+                    @Model.Content.FooterCtacaption
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

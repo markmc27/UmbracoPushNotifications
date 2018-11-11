@@ -1,0 +1,71 @@
+﻿<div class="communication-dashboard" ng-controller="CommunicationDashboardController as vm">
+    <umb-editor-sub-header>
+        <umb-editor-sub-header-content-left>
+            <span>Subscription count: {{vm.subscriptionCount}}</span>
+        </umb-editor-sub-header-content-left>
+        <umb-editor-sub-header-content-right>
+            <umb-button action="vm.openOverlay()"
+                        type="button"
+                        button-style="info"
+                        state="vm.addNewButtonState"
+                        shortcut="alt+a"
+                        label="Add New Announcement"
+                        disabled="vm.addNewButtonState === 'busy'">
+            </umb-button>
+        </umb-editor-sub-header-content-right>
+
+    </umb-editor-sub-header>
+
+    <h2>Past Announcements</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Announcement Title</th>
+                <th>Sent Date</th>
+                <th>User</th>
+                <th>Website Page</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="log in vm.historyLog">
+                <td>{{log.Title}}</td>
+                <td>{{log.SentDate | date:'medium'}}</td>
+                <td>{{log.User}}</td>
+                <td><a class="btn btn-small btn-secondary" href="/Umbraco/#/content/content/edit/{{log.NodeId}}">View</a></td>
+            </tr>
+            <tr ng-if="!vm.historyLog.length">
+                <td v-if="vm.loaded" class="has-no-history clearfix" colspan="4">
+                    <span ng-if="vm.loaded">No announcements have been made yet.</span>
+                    <div class="loading-history" ng-if="!vm.loaded">
+                        <umb-load-indicator></umb-load-indicator>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <umb-overlay ng-if="vm.overlay.show"
+                 model="vm.overlay"
+                 view="vm.overlay.view"
+                 position="right">
+    </umb-overlay>
+</div>
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '251415708938969',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v3.0'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>

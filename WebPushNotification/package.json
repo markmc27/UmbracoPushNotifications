@@ -1,0 +1,31 @@
+{
+  "name": "Woolton-sc-website",
+  "version": "1.0.0",
+  "description": "Woolton SC website.",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "del": "~2.2.2",
+    "grunt": "^1.0.3",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "~2.6.1",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-rename": "^1.2.3",
+    "gulp-replace": "~0.5.4",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^1.12.1",
+    "gulp-strip-debug": "~1.1.0",
+    "gulp-uglify": "~2.0.0",
+    "gulp.spritesmith": "^6.9.0",
+    "workbox-cli": "^1.2.0"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "node workbox-cli generate:sw && gulp sass"
+  },
+  "author": "Mark McDonald <mark.mcdonald248@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "gulp-autoprefixer": "^3.1.0"
+  }
+}

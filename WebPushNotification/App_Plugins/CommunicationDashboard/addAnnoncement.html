@@ -1,0 +1,94 @@
+﻿<umb-control-group>
+    <div class="umb-el-wrap">
+        <label class="control-label" for="annShortName">Short name</label>
+    </div>
+    <div class="controls">
+        <input id="annShortName" type="text" ng-model="model.announcement.shortName" class="umb-editor" placeholder="A friendly display name." />
+    </div>
+</umb-control-group>
+
+<umb-control-group>
+    <div class="umb-el-wrap">
+        <label class="control-label" for="annHeading">Announcement heading</label>
+    </div>
+    <div class="controls">
+        <textarea id="annHeading" ng-model="model.announcement.heading" class="umb-editor announcement-heading-input" placeholder="Enter a heading for the announcement."></textarea>
+    </div>
+</umb-control-group>
+
+<umb-control-group>
+    <div class="umb-el-wrap">
+        <label class="control-label" for="annText">Announcement Main Text</label>
+    </div>
+    <div class="controls">
+        <textarea id="annText" ng-model="model.announcement.announcementText" class="umb-editor announcement-text-input" placeholder="Enter the content of the announcement."></textarea>
+    </div>
+</umb-control-group>
+
+
+<umb-control-group>
+    <div class="umb-el-wrap">
+        <label class="control-label" for="annText">Send Email?</label>
+    </div>
+    <div class="controls">
+        <umb-toggle checked="model.announcement.types.Email.checked"
+                    on-click="model.announcement.toggleAnnouncementType(model.announcement.types.Email)"
+                    show-labels="true"
+                    label-on="Yes"
+                    label-off="No"
+                    label-position="right"
+                    hide-icons="true">
+        </umb-toggle>
+    </div>
+</umb-control-group>
+
+<umb-control-group>
+    <div class="umb-el-wrap">
+        <label class="control-label" for="annText">Send Push Notification?</label>
+    </div>
+    <div class="controls">
+        <umb-toggle checked="model.announcement.types.Push.checked"
+                    on-click="model.announcement.toggleAnnouncementType(model.announcement.types.Push)"
+                    show-labels="true"
+                    label-on="Yes"
+                    label-off="No"
+                    label-position="right"
+                    hide-icons="true">
+        </umb-toggle>
+        <button class="announcement-tooltip" type="button"
+                ng-click="model.announcement.types.Push.tooltip.mouseOver($event)"
+                ng-mouseleave="model.announcement.types.Push.tooltip.mouseLeave()">
+            What is a push notification?
+        </button>
+        <umb-tooltip ng-if="model.announcement.types.Push.tooltip.show"
+                     event="model.announcement.types.Push.tooltip.event">
+            A push notification is a notification that you receieve on a mobile device. The user must subscribe to the push
+            notifications through the website before receiving them.
+        </umb-tooltip>
+    </div>
+</umb-control-group>
+
+<umb-control-group>
+    <div class="umb-el-wrap">
+        <label class="control-label" for="annText">Publish to Facebook?</label>
+    </div>
+    <div class="controls">
+        <umb-toggle checked="model.announcement.types.Facebook.checked"
+                    on-click="model.announcement.toggleAnnouncementType(model.announcement.types.Facebook)"
+                    show-labels="true"
+                    label-on="Yes"
+                    label-off="No"
+                    label-position="right"
+                    hide-icons="true">
+        </umb-toggle>
+    </div>
+</umb-control-group>
+
+
+
+<!--<label ng-repeat="aType in model.announcement.types">
+    <input type="checkbox"
+           name="selectedTypes"
+           value="{{aType.type}}"
+           ng-model="aType.checked"> {{aType.type}}
+</label>-->

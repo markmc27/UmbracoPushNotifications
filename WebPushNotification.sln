@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPushNotification", "WebPushNotification\WebPushNotification.csproj", "{9E511600-400A-4498-943F-7127ACA27531}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPushNotification.Core", "WebPushNotification.Core\WebPushNotification.Core.csproj", "{365BBAA5-9578-4A63-9C48-64D60E31E874}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9E511600-400A-4498-943F-7127ACA27531}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E511600-400A-4498-943F-7127ACA27531}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E511600-400A-4498-943F-7127ACA27531}.Release|Any CPU.Build.0 = Release|Any CPU
+		{365BBAA5-9578-4A63-9C48-64D60E31E874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{365BBAA5-9578-4A63-9C48-64D60E31E874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{365BBAA5-9578-4A63-9C48-64D60E31E874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{365BBAA5-9578-4A63-9C48-64D60E31E874}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

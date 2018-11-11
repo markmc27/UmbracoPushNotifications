@@ -1,0 +1,9 @@
+﻿{
+  "javascript": [
+    "~/app_plugins/CommunicationDashboard/communicationdashboard.resource.js",
+    "~/app_plugins/CommunicationDashboard/communicationdashboard.controller.js"
+  ],
+  "css": [
+    "~/app_plugins/CommunicationDashboard/communicationdashboard.css"
+  ]
+}
